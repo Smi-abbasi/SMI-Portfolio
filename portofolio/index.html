@@ -1,0 +1,1540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SMI Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --primary:#4f46e5;
+    --primary-light:#6366f1;
+    --secondary:#06b6d4;
+
+    --bg:#f8fafc;
+    --surface:rgba(255,255,255,.72);
+    --surface-solid:#ffffff;
+
+    --text:#0f172a;
+    --text-light:#475569;
+
+    --border:rgba(148,163,184,.18);
+
+    --shadow-sm:0 8px 25px rgba(15,23,42,.06);
+    --shadow-md:0 18px 45px rgba(15,23,42,.10);
+    --shadow-lg:0 30px 70px rgba(15,23,42,.16);
+
+    --radius:22px;
+
+    --transition:.35s cubic-bezier(.22,.61,.36,1);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:
+    radial-gradient(circle at top right,#dbeafe 0%,transparent 35%),
+    radial-gradient(circle at bottom left,#ede9fe 0%,transparent 40%),
+    var(--bg);
+    color:var(--text);
+    line-height:1.7;
+    padding-top:90px;
+    transition:var(--transition);
+    overflow-x:hidden;
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-track{
+    background:#eef2f7;
+}
+
+::-webkit-scrollbar-thumb{
+    background:linear-gradient(var(--primary),var(--secondary));
+    border-radius:20px;
+}
+
+/* DARK MODE */
+
+.dark-mode{
+
+    --bg:#050816;
+    --surface:rgba(15,23,42,.75);
+    --surface-solid:#111827;
+
+    --text:#f8fafc;
+    --text-light:#cbd5e1;
+
+    --border:rgba(255,255,255,.08);
+
+    background:
+    radial-gradient(circle at top right,#1e3a8a22 0%,transparent 35%),
+    radial-gradient(circle at bottom left,#4338ca22 0%,transparent 40%),
+    var(--bg);
+
+    color:var(--text);
+}
+
+.dark-mode .navbar,
+.dark-mode .card,
+.dark-mode .skill-card,
+.dark-mode footer{
+    background:var(--surface);
+}
+
+/* NAVBAR */
+
+.navbar{
+    position:fixed;
+    top:16px;
+    left:50%;
+    transform:translateX(-50%);
+    width:min(94%,1250px);
+
+    background:var(--surface);
+    backdrop-filter:blur(22px);
+
+    border:1px solid var(--border);
+
+    border-radius:18px;
+
+    box-shadow:var(--shadow-sm);
+
+    z-index:999;
+}
+
+.navbar .container{
+    max-width:1180px;
+    margin:auto;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:18px 30px;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:700;
+    letter-spacing:1px;
+
+    background:linear-gradient(135deg,var(--primary),var(--secondary));
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.nav-links a{
+
+    text-decoration:none;
+    color:var(--text-light);
+
+    font-weight:500;
+
+    padding:10px 18px;
+
+    border-radius:12px;
+
+    transition:var(--transition);
+
+    position:relative;
+}
+
+.nav-links a::after{
+
+    content:"";
+
+    position:absolute;
+
+    bottom:4px;
+    left:50%;
+
+    transform:translateX(-50%) scaleX(0);
+
+    width:60%;
+    height:2px;
+
+    background:linear-gradient(to right,var(--primary),var(--secondary));
+
+    transition:.35s;
+}
+
+.nav-links a:hover{
+
+    color:var(--primary);
+
+    background:rgba(99,102,241,.08);
+}
+
+.nav-links a:hover::after{
+
+    transform:translateX(-50%) scaleX(1);
+}
+
+.menu-toggle{
+    display:none;
+    font-size:28px;
+    cursor:pointer;
+}
+
+/* BUTTON */
+
+.btn{
+
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:14px 32px;
+
+    border:none;
+
+    border-radius:999px;
+
+    background:linear-gradient(135deg,var(--primary),var(--secondary));
+
+    color:#fff;
+
+    font-weight:600;
+
+    text-decoration:none;
+
+    cursor:pointer;
+
+    transition:var(--transition);
+
+    box-shadow:0 15px 35px rgba(79,70,229,.25);
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.btn::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(90deg,
+    transparent,
+    rgba(255,255,255,.35),
+    transparent);
+
+    transform:translateX(-120%);
+
+    transition:.7s;
+}
+
+.btn:hover::before{
+
+    transform:translateX(120%);
+}
+
+.btn:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 22px 45px rgba(79,70,229,.35);
+}
+
+.cta-center{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-top:55px;
+}
+
+.cta-center .btn{
+    min-width:230px;
+    padding:18px 42px;
+    font-size:20px;
+    font-weight:600;
+    border-radius:60px;
+    box-shadow:0 18px 45px rgba(37,99,235,.28);
+    transition:.35s;
+}
+
+.cta-center .btn:hover{
+    transform:translateY(-6px) scale(1.05);
+    box-shadow:0 25px 60px rgba(37,99,235,.45);
+}
+
+
+/* HERO */
+
+#home{
+
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    flex-direction:column;
+
+    text-align:center;
+
+    position:relative;
+
+    overflow:hidden;
+
+    padding:120px 20px;
+
+    background:
+
+    radial-gradient(circle at top left,#818cf822 0%,transparent 40%),
+    radial-gradient(circle at bottom right,#06b6d422 0%,transparent 35%),
+    linear-gradient(180deg,#ffffff 0%,#f8fafc 100%);
+}
+
+.dark-mode #home{
+
+    background:
+    radial-gradient(circle at top left,#4338ca33 0%,transparent 40%),
+    radial-gradient(circle at bottom right,#0891b233 0%,transparent 35%),
+    transparent;
+}
+
+#home img{
+
+    width:220px;
+    height:220px;
+
+    border-radius:50%;
+
+    border:6px solid rgba(255,255,255,.9);
+
+    object-fit:cover;
+
+    box-shadow:var(--shadow-lg);
+
+    margin-bottom:28px;
+
+    transition:.5s;
+}
+
+#home img:hover{
+
+    transform:scale(1.05) rotate(2deg);
+}
+
+#home h1{
+
+    font-size:clamp(42px,6vw,72px);
+
+    line-height:1.1;
+
+    margin-bottom:18px;
+
+    font-weight:700;
+}
+
+#home p{
+
+    max-width:700px;
+
+    font-size:20px;
+
+    color:var(--text-light);
+
+    margin-bottom:30px;
+}
+
+/* Sections */
+
+section{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    padding:120px 25px;
+}
+
+section h2{
+
+    font-size:42px;
+
+    margin-bottom:20px;
+
+    font-weight:700;
+}
+
+.fade{
+
+    opacity:0;
+
+    transform:translateY(50px);
+
+    transition:.8s ease;
+}
+
+.fade.show{
+
+    opacity:1;
+
+    transform:none;
+}
+
+/* About */
+
+.about-text{
+
+    max-width:850px;
+
+    margin:auto;
+
+    color:var(--text-light);
+}
+.dark-mode #about{
+    background:#0f172a !important;
+}
+
+.about-points{
+
+    margin-top:45px;
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+
+    gap:18px;
+}
+
+.about-points p{
+
+    background:var(--surface);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid var(--border);
+
+    padding:18px;
+
+    border-radius:18px;
+
+    box-shadow:var(--shadow-sm);
+
+    transition:var(--transition);
+
+    color:var(--text);
+}
+
+.about-points p:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:var(--shadow-md);
+}
+/* ===========================
+   ABOUT SECTION - DARK MODE
+=========================== */
+
+.dark-mode #about{
+    background:#0f172a;
+    color:#e5e7eb;
+}
+
+.dark-mode #about h2{
+    color:#ffffff;
+}
+
+.dark-mode #about p{
+    color:#cbd5e1;
+}
+
+.dark-mode #about .about-text{
+    color:#cbd5e1;
+}
+
+.dark-mode #about .about-points p{
+    color:#e2e8f0;
+}
+
+.dark-mode #about .about-card{
+    background:#1e293b;
+    border:1px solid rgba(255,255,255,.08);
+    color:#e5e7eb;
+    box-shadow:0 12px 30px rgba(0,0,0,.35);
+}
+
+.dark-mode #about .about-card:hover{
+    background:#243447;
+    border-color:#3b82f6;
+    transform:translateY(-6px);
+}
+
+.dark-mode #about .highlight{
+    color:#60a5fa;
+}
+/* Skills */
+
+.skills-container{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+    gap:28px;
+
+    margin-top:55px;
+}
+
+.skill-card{
+
+    background:var(--surface);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius);
+
+    padding:35px;
+
+    transition:var(--transition);
+
+    box-shadow:var(--shadow-sm);
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.skill-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:-120px;
+    right:-120px;
+
+    width:220px;
+    height:220px;
+
+    background:radial-gradient(circle,
+    rgba(99,102,241,.18),
+    transparent 70%);
+}
+
+.skill-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:var(--shadow-lg);
+}
+
+.skill-icon{
+
+    font-size:42px;
+
+    margin-bottom:20px;
+}
+
+.skill-card h3{
+
+    color:var(--primary);
+
+    margin-bottom:12px;
+}
+
+.skill-card p{
+
+    color:var(--text-light);
+
+    font-size:15px;
+}
+
+/* Projects */
+
+.projects{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+    gap:30px;
+
+    margin-top:50px;
+}
+
+.card{
+
+    background:var(--surface);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid var(--border);
+
+    border-radius:24px;
+
+    padding:35px;
+
+    transition:var(--transition);
+
+    box-shadow:var(--shadow-sm);
+
+    overflow:hidden;
+}
+
+.card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:var(--shadow-lg);
+}
+
+.card h3{
+
+    margin-bottom:14px;
+
+    color:var(--primary);
+}
+
+.card p{
+
+    color:var(--text-light);
+
+    margin-bottom:25px;
+}
+
+/* Footer */
+
+footer{
+
+    margin:70px auto 30px;
+
+    max-width:1200px;
+
+    background:var(--surface);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid var(--border);
+
+    border-radius:22px;
+
+    padding:28px;
+
+    text-align:center;
+
+    color:var(--text-light);
+
+    box-shadow:var(--shadow-sm);
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+.menu-toggle{
+
+display:block;
+
+}
+
+.nav-links{
+
+position:absolute;
+
+top:80px;
+right:18px;
+
+width:240px;
+
+display:none;
+
+flex-direction:column;
+
+gap:10px;
+
+padding:20px;
+
+background:var(--surface-solid);
+
+border-radius:18px;
+
+border:1px solid var(--border);
+
+box-shadow:var(--shadow-lg);
+}
+
+.nav-links.show{
+
+display:flex;
+
+}
+
+.nav-links a{
+
+width:100%;
+
+text-align:center;
+
+margin:0;
+}
+
+#home h1{
+
+font-size:44px;
+}
+
+section{
+
+padding:90px 20px;
+}
+
+}
+.browser-window{
+
+position:relative;
+
+}
+
+.browser-window::before{
+
+content:"";
+
+position:absolute;
+
+width:400px;
+height:400px;
+
+background:
+radial-gradient(circle,
+rgba(37,99,235,.18),
+transparent 70%);
+
+filter:blur(90px);
+
+left:50%;
+
+top:50%;
+
+transform:translate(-50%,-50%);
+
+z-index:0;
+
+}
+
+.browser-window img{
+
+position:relative;
+
+z-index:2;
+
+}
+.featured-image{
+
+    position:relative;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+}
+
+.featured-image img{
+
+    width:120%;
+
+    max-width:1050px;
+
+    height:auto;
+
+    display:block;
+
+    position:relative;
+
+    z-index:5;
+
+    filter:
+    drop-shadow(0 45px 120px rgba(0,0,0,.55))
+    drop-shadow(0 0 120px rgba(37,99,235,.25));
+
+    animation:float 6s ease-in-out infinite;
+
+    transition:.45s;
+
+}
+
+.featured-image:hover img{
+
+    transform:scale(1.03);
+
+}
+
+.featured-image::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:950px;
+
+    height:950px;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(circle,
+    rgba(59,130,246,.22) 0%,
+    rgba(37,99,235,.12) 35%,
+    transparent 72%);
+
+    filter:blur(170px);
+
+    left:50%;
+
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    z-index:-3;
+
+}
+.featured-image::after{
+
+content:"";
+
+position:absolute;
+
+left:50%;
+
+bottom:15px;
+
+transform:translateX(-50%);
+
+width:480px;
+
+height:55px;
+
+background:black;
+
+opacity:.22;
+
+filter:blur(55px);
+
+border-radius:50%;
+
+z-index:-2;
+
+}
+.featured-image{
+
+padding:35px;
+
+border-radius:35px;
+
+background:rgba(255,255,255,.03);
+
+backdrop-filter:blur(20px);
+
+
+}
+.image-wrapper{
+
+    background:transparent;
+
+    border:none;
+
+    padding:0;
+
+    box-shadow:none;
+
+    overflow:visible;
+
+}
+.image-wrapper img{
+
+    width:100%;
+    max-width:900px;
+
+    display:block;
+
+    filter:
+        drop-shadow(0 35px 80px rgba(0,0,0,.55))
+        drop-shadow(0 0 70px rgba(59,130,246,.28));
+
+    animation:float 6s ease-in-out infinite;
+
+}
+.image-wrapper{
+
+    position:relative;
+
+}
+
+.image-wrapper::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    width:650px;
+    height:650px;
+
+    margin:auto;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(circle,
+    rgba(59,130,246,.35),
+    transparent 70%);
+
+    filter:blur(120px);
+
+    z-index:-1;
+
+}
+.image-wrapper::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:30px;
+
+    transform:translateX(-50%);
+
+    width:450px;
+
+    height:45px;
+
+    border-radius:50%;
+
+    background:black;
+
+    opacity:.35;
+
+    filter:blur(40px);
+
+    z-index:-1;
+
+}
+.hero{
+
+display:grid;
+
+grid-template-columns:45% 55%;
+
+align-items:center;
+
+gap:80px;
+
+}
+@keyframes float{
+
+0%{
+
+transform:translateY(0px);
+
+}
+
+50%{
+
+transform:translateY(-18px);
+
+}
+
+100%{
+
+transform:translateY(0px);
+
+}
+
+}
+/* PERSONAL SECTION */
+
+#personal{
+
+padding:80px 20px;
+
+}
+
+.personal-box{
+
+max-width:850px;
+
+margin:auto;
+
+background:linear-gradient(135deg,#ffffff,#f8fbff);
+
+padding:60px;
+
+border-radius:30px;
+
+text-align:center;
+
+box-shadow:0 20px 60px rgba(0,0,0,.08);
+
+}
+
+.personal-box h2{
+
+font-size:40px;
+
+margin-bottom:15px;
+
+color:#111827;
+
+}
+
+.personal-box p{
+
+font-size:18px;
+
+color:#64748b;
+
+max-width:650px;
+
+margin:auto;
+
+line-height:1.8;
+
+}
+
+.personal-buttons{
+
+margin-top:40px;
+
+display:flex;
+
+justify-content:center;
+
+gap:25px;
+
+flex-wrap:wrap;
+
+}
+
+.personal-btn{
+
+padding:18px 38px;
+
+border-radius:60px;
+
+background:linear-gradient(90deg,#2563eb,#38bdf8);
+
+color:white;
+
+font-weight:600;
+
+text-decoration:none;
+
+transition:.35s;
+
+box-shadow:0 15px 35px rgba(37,99,235,.25);
+
+}
+
+.personal-btn:hover{
+
+transform:translateY(-6px) scale(1.05);
+
+box-shadow:0 25px 60px rgba(37,99,235,.35);
+
+}
+.project-tag{
+display:inline-flex;
+align-items:center;
+gap:10px;
+padding:10px 22px;
+border-radius:50px;
+background:rgba(37,99,235,.08);
+border:1px solid rgba(37,99,235,.25);
+backdrop-filter:blur(12px);
+font-size:14px;
+font-weight:600;
+letter-spacing:.5px;
+color:#2563eb;
+margin-bottom:18px;
+box-shadow:0 8px 25px rgba(37,99,235,.12);
+transition:.35s;
+}
+
+.project-tag:hover{
+transform:translateY(-3px);
+box-shadow:0 15px 35px rgba(37,99,235,.18);
+}
+.ai-logo{
+
+display:flex;
+align-items:center;
+gap:18px;
+margin-bottom:25px;
+
+}
+
+.glow-dot{
+
+width:18px;
+height:18px;
+border-radius:50%;
+background:#3b82f6;
+
+box-shadow:
+0 0 15px #3b82f6,
+0 0 40px #3b82f6,
+0 0 70px #3b82f6;
+
+animation:pulse 2s infinite;
+
+}
+
+@keyframes pulse{
+
+50%{
+
+transform:scale(1.3);
+
+}
+
+}
+
+.ai-logo h1{
+
+font-size:72px;
+font-weight:800;
+letter-spacing:-2px;
+
+}
+
+.ai-logo span{
+
+background:linear-gradient(90deg,#38bdf8,#2563eb);
+
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+
+}
+</style>
+</head>
+<body>
+
+
+
+<script>
+function sendData(msg){
+  fetch("http://localhost:5678/webhook-test/chatbot", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ name: "SMI", query: { message: msg } })
+  })
+  .then(res => res.json())
+  .then(data => alert(data.reply)); // shows reply
+}
+</script>
+
+<!-- NAVBAR -->
+<!-- NAVBAR -->
+<div class="navbar">
+    <div class="container">
+        <div class="logo">SMI</div>
+
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+        <div class="nav-links" id="navLinks">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+
+            <button onclick="toggleDarkMode()" class="btn">
+                🌙 Dark Mode
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- HOME -->
+<section id="home" class="fade">
+
+    <img src="cv profile.png" alt="SMI - Sami Ullah Akhtar">
+
+    <p class="hero-badge">
+        👋 Welcome to My Digital Portfolio
+    </p>
+
+    <h1>
+        Hi, I'm <span style="color:#4f46e5;">Sami Ullah Akhtar</span>
+    </h1>
+
+    <p>
+        A passionate <strong>Full Stack Developer</strong> dedicated to building
+        responsive websites, interactive user interfaces, and scalable digital
+        solutions that combine modern design with clean, efficient code.
+    </p>
+
+    <button class="btn"
+        onclick="document.getElementById('intro').scrollIntoView({behavior:'smooth'})">
+        Explore My Work
+    </button>
+
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="fade">
+
+    <h2>About Me</h2>
+
+    <p id="intro" style="color:#4f46e5;font-weight:600;">
+        Full Stack Developer • UI Enthusiast • Lifelong Learner
+    </p>
+
+    <p class="about-text">
+
+        I'm a Computer Science student and passionate software developer with a
+        strong interest in creating modern, responsive, and user-focused web
+        applications. I enjoy solving real-world problems through clean code,
+        intuitive design, and continuous learning.
+
+    </p>
+
+    <p class="about-text">
+
+        My goal is to become a professional software engineer capable of
+        delivering high-quality digital products that combine performance,
+        usability, and exceptional user experiences.
+
+    </p>
+
+    <div class="about-points">
+
+        <p>🎓 BS Computer Science — Federal Urdu University (FUUAST)</p>
+
+        <p>💻 Passionate Full Stack Web Developer</p>
+
+        <p>⚡ Frontend Development with HTML, CSS & JavaScript</p>
+
+        <p>🖥 Backend Development using Python, Java, C++, and C#</p>
+
+        <p>🗄 SQL Database Design & Management</p>
+
+        <p>🎨 Responsive UI/UX Design Principles</p>
+
+        <p>🧠 Strong Analytical & Problem-Solving Skills</p>
+
+        <p>🚀 Continuously Learning AI, Full Stack Development & Modern Technologies</p>
+
+    </div>
+
+</section>
+<section id="personal">
+
+<div class=".feature-box">
+
+<h2>Know More About Me</h2>
+
+<p>
+Want to know more about my background, interests, and personal journey?
+Explore my profile and discover more about me.
+</p>
+
+<div class="personal-buttons">
+
+<a href="practice.html" class="personal-btn">
+👤 My Profile
+</a>
+
+<a href="profile.html" class="personal-btn">
+📖 About Me
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="featured-ai">
+
+    <div class="featured-content">
+
+        <div class="project-tag">
+             <h3>🏆 Signature AI Project</h3>
+        </div>
+
+       <div class="ai-logo">
+
+         <span class="glow-dot"></span>
+
+           <h1>
+
+               SMI <span>AI</span>
+
+           </h1>
+
+</div>
+        <h3>
+            Building the Future of Intelligent Local AI
+        </h3>
+
+        <p>
+
+            Smart Mind Intelligence (SMI AI) is my flagship AI project
+            designed to deliver a fast, private, and intelligent assistant
+            powered by Large Language Models running locally through Ollama.
+            It combines Retrieval-Augmented Generation (RAG), semantic search,
+            and a modern user experience to help users interact naturally with
+            documents, code, and knowledge.
+
+        </p>
+
+        <div class="feature-list">
+
+            <div>🧠 Local AI with Ollama</div>
+            <div>📄 RAG Document Intelligence</div>
+            <div>⚡ Fast & Private</div>
+            <div>💻 Modern Chat Experience</div>
+
+        </div>
+
+        <div class="hero-buttons">
+
+            <a href="smi-ai.html" class="btn">
+                Explore Project →
+            </a>
+
+            <a href="#" class="btn secondary">
+                GitHub
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="featured-image">
+
+        <img src="smi ai mac.png" alt="SMI AI">
+
+    </div>
+
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="fade">
+
+    <h2>Technical Expertise</h2>
+
+    <p class="about-text">
+        My technical toolkit enables me to develop responsive interfaces,
+        efficient backend systems, and scalable applications while following
+        modern development practices.
+    </p>
+
+    <div class="skills-container">
+
+        <div class="skill-card">
+
+            <div class="skill-icon">🌐</div>
+
+            <h3>Frontend Development</h3>
+
+            <p>
+                HTML5, CSS3, JavaScript, Responsive Design,
+                Modern Layouts, UI Components, Interactive Interfaces
+            </p>
+
+        </div>
+
+        <div class="skill-card">
+
+            <div class="skill-icon">⚙️</div>
+
+            <h3>Backend Development</h3>
+
+            <p>
+                Python, Java, C++, C#, REST APIs,
+                Application Logic & Backend Architecture
+            </p>
+
+        </div>
+
+        <div class="skill-card">
+
+            <div class="skill-icon">🗄️</div>
+
+            <h3>Database Systems</h3>
+
+            <p>
+                SQL Database Design, Data Management,
+                CRUD Operations and Relational Databases
+            </p>
+
+        </div>
+
+        <div class="skill-card">
+
+            <div class="skill-icon">🚀</div>
+
+            <h3>Professional Skills</h3>
+
+            <p>
+                Problem Solving, Team Collaboration,
+                Clean Code, Performance Optimization,
+                Continuous Learning
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="fade">
+
+    <h2>Projects</h2>
+
+    <p class="about-text">
+
+        Here are some of the projects that demonstrate my technical knowledge,
+        creativity, and commitment to developing clean and user-friendly web
+        experiences.
+
+    </p>
+
+    <div class="projects">
+
+        <div class="card">
+
+            <h3>SMI AI – Smart Mind Intelligence </h3>
+
+            <p>
+
+              Built an AI assistant using <strong>Streamlit and Ollama</strong>.
+              Developed a clean and interactive user interface.
+            </p>
+
+            <a href="smi-ai.html" class="btn">
+                View Project
+            </a>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Library Management System (Python + MySQL)</h3>
+
+            <p>
+
+                Built a desktop application for managing books, users, issue/return operations, and records.
+            </p>
+
+            <a href="LMS.html" class="btn">
+                View Project
+            </a>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Plagiarism Checker (C# Windows Forms)</h3>
+
+            <p>
+
+                Designed an intuitive interface for quick plagiarism analysis.                professional goals, skills, and responsive design principles.
+            </p>
+
+            <a href="checker.html" class="btn">
+                View Project
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="fade">
+
+    <h2>Let's Build Something Great Together</h2>
+
+    <p>
+
+        Whether you have a project idea, freelance opportunity,
+        internship, or simply want to connect,
+        I'm always open to meaningful conversations and collaborations.
+
+    </p>
+
+
+      <div class="cta-center">
+               <a href="mailto:smiabbasi97@gmail.com"  class="btn">Contact Me</a>
+      </div>
+
+</section>
+
+<footer>
+
+    <p>
+
+        © 2026 <strong>Sami Ullah Akhtar (SMI)</strong> •
+        Designed & Developed with HTML, CSS & JavaScript.
+
+    </p>
+
+</footer>
+<script>
+/* DARK MODE SAVE */
+function toggleDarkMode(){
+    document.body.classList.toggle("dark-mode");
+    localStorage.setItem("darkMode",document.body.classList.contains("dark-mode"));
+}
+if(localStorage.getItem("darkMode")==="true"){
+    document.body.classList.add("dark-mode");
+}
+
+/* MOBILE MENU */
+function toggleMenu(){
+    document.getElementById("navLinks").classList.toggle("show");
+}
+
+/* SCROLL ANIMATION */
+const fades=document.querySelectorAll(".fade");
+window.addEventListener("scroll",()=>{
+    fades.forEach(el=>{
+        const top=el.getBoundingClientRect().top;
+        if(top<window.innerHeight-100){
+            el.classList.add("show");
+        }
+    });
+});
+</script>
+
+</body>
+</html>

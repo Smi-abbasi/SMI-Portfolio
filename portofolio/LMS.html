@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Library Management System | SMI Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+
+background:#07111f;
+color:white;
+
+}
+
+a{
+text-decoration:none;
+}
+
+section{
+
+max-width:1300px;
+margin:auto;
+padding:90px 7%;
+
+}
+
+/* HERO */
+
+.hero{
+
+display:grid;
+grid-template-columns:1fr 1fr;
+align-items:center;
+gap:70px;
+min-height:100vh;
+
+}
+
+.badge{
+
+display:inline-block;
+padding:8px 18px;
+background:#2563eb22;
+border:1px solid #2563eb;
+border-radius:30px;
+color:#60a5fa;
+margin-bottom:20px;
+
+}
+
+.hero h1{
+
+font-size:58px;
+margin-bottom:20px;
+
+}
+
+.hero h1 span{
+
+color:#60a5fa;
+
+}
+
+.hero p{
+
+color:#cbd5e1;
+font-size:18px;
+line-height:1.8;
+margin-bottom:35px;
+
+}
+
+.btn{
+
+display:inline-block;
+padding:14px 30px;
+border-radius:50px;
+background:#2563eb;
+color:white;
+transition:.35s;
+
+}
+
+.btn:hover{
+
+transform:translateY(-5px);
+
+}
+
+.hero-image img{
+
+width:100%;
+height: 350px;
+
+border-radius:22px;
+
+box-shadow:0 30px 80px rgba(0,0,0,.45);
+
+transition:.4s;
+
+}
+
+.hero-image img:hover{
+
+transform:scale(1.02);
+
+}
+
+/* TITLES */
+
+.section-title{
+
+font-size:40px;
+margin-bottom:15px;
+
+}
+
+.section-sub{
+
+color:#94a3b8;
+margin-bottom:45px;
+
+}
+
+/* GALLERY */
+
+.gallery{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(420px,1fr));
+gap:35px;
+
+}
+
+.gallery img{
+
+width:100%;
+height:400px;
+border-radius:20px;
+
+box-shadow:0 20px 60px rgba(0,0,0,.4);
+
+transition:.4s;
+
+}
+
+.gallery img:hover{
+
+transform:translateY(-10px);
+
+}
+
+/* FEATURES */
+
+.features{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:25px;
+
+}
+
+.card{
+
+background:#0f172a;
+
+padding:28px;
+
+border-radius:20px;
+
+border:1px solid rgba(255,255,255,.08);
+
+transition:.35s;
+
+}
+
+.card:hover{
+
+transform:translateY(-8px);
+
+border-color:#3b82f6;
+
+}
+
+.card h3{
+
+color:#60a5fa;
+margin-bottom:12px;
+
+}
+
+.card p{
+
+color:#cbd5e1;
+
+font-size:15px;
+
+}
+
+/* TECH */
+
+.tech{
+
+display:flex;
+flex-wrap:wrap;
+gap:15px;
+
+margin-top:30px;
+
+}
+
+.tech span{
+
+padding:12px 20px;
+
+background:#111827;
+
+border-radius:30px;
+
+border:1px solid rgba(255,255,255,.08);
+
+}
+
+/* FOOTER */
+
+footer{
+
+padding:60px;
+text-align:center;
+color:#94a3b8;
+
+}
+
+.back{
+
+margin-top:50px;
+
+display:inline-block;
+
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.hero{
+
+grid-template-columns:1fr;
+
+text-align:center;
+
+}
+
+.hero h1{
+
+font-size:42px;
+
+}
+
+.gallery{
+
+grid-template-columns:1fr;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<section class="hero">
+
+<div>
+
+<span class="badge">
+📚 Desktop Application
+</span>
+
+<h1>
+Library Management <span>System</span>
+</h1>
+
+<p>
+
+A modern desktop-based Library Management System developed using Python. It helps manage books, student records, issue/return operations, and administrative tasks through a clean and user-friendly interface.
+
+</p>
+
+<a href="index.html" class="btn">
+← Back to Portfolio
+</a>
+
+</div>
+
+<div class="hero-image">
+
+<img src="LMS1.jpeg" alt="Library Management System">
+
+</div>
+
+</section>
+
+<section>
+
+<h2 class="section-title">
+Application Preview
+</h2>
+
+<p class="section-sub">
+A quick look at the interface and functionality.
+</p>
+
+<div class="gallery">
+
+<img src="lmslogin.jpeg" alt="Dashboard">
+
+<img src="LMS2.jpeg" alt="Books Management">
+
+</div>
+
+</section>
+
+<section>
+
+<h2 class="section-title">
+Key Features
+</h2>
+
+<p class="section-sub">
+Core functionality implemented in the application.
+</p>
+
+<div class="features">
+
+<div class="card">
+<h3>📖 Book Management</h3>
+<p>Add, update, delete, and organize books with complete record management.</p>
+</div>
+
+<div class="card">
+<h3>👨‍🎓 Student Records</h3>
+<p>Maintain student information with quick search and management options.</p>
+</div>
+
+<div class="card">
+<h3>🔄 Issue & Return</h3>
+<p>Track book borrowing and returning with an easy-to-use workflow.</p>
+</div>
+
+<div class="card">
+<h3>🔒 Secure Login</h3>
+<p>Authentication system for administrators to securely manage the library.</p>
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2 class="section-title">
+Technology Stack
+</h2>
+
+<p class="section-sub">
+Technologies used to build the project.
+</p>
+
+<div class="tech">
+
+<span>Python</span>
+
+<span>Tkinter</span>
+
+<span>MySQL</span>
+
+<span>SQL</span>
+
+<span>Git</span>
+
+<span>Desktop GUI</span>
+
+</div>
+
+</section>
+
+<section style="text-align:center;">
+
+<h2 class="section-title">
+Project Summary
+</h2>
+
+<p style="max-width:800px;margin:20px auto;color:#cbd5e1;line-height:1.8;">
+
+The Library Management System was developed as a desktop application to simplify library operations through an intuitive graphical interface. It demonstrates practical skills in Python development, database integration, GUI design, and problem-solving while providing an efficient solution for managing books and student records.
+
+</p>
+
+<a href="index.html" class="btn back">
+← Back to Portfolio
+</a>
+
+</section>
+
+<footer>
+
+<p>
+© 2026 Sami Ullah Akhtar • Library Management System
+</p>
+
+</footer>
+
+</body>
+</html>

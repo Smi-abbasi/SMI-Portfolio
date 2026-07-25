@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SMI Profile</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Poppins',sans-serif;
+  background:linear-gradient(135deg,#007bff,#00c6ff);
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:white;
+}
+
+/* MAIN CARD */
+.main{
+  width:90%;
+  max-width:1000px;
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(20px);
+  border-radius:20px;
+  display:flex;
+  overflow:hidden;
+  box-shadow:0 20px 50px rgba(0,0,0,0.2);
+}
+
+/* LEFT SIDE */
+.left{
+  flex:1;
+  padding:50px;
+}
+
+.left h1{
+  font-size:40px;
+  font-weight:700;
+}
+
+.left p{
+  margin-top:15px;
+  line-height:1.6;
+  color:#e0e0e0;
+}
+
+.buttons{
+  margin-top:25px;
+}
+
+.btn{
+  padding:12px 25px;
+  border:none;
+  border-radius:30px;
+  cursor:pointer;
+  margin-right:10px;
+  font-weight:500;
+}
+
+.btn-primary{
+  background:white;
+  color:#007bff;
+}
+
+.btn-primary:hover{
+  background:#eaeaea;
+}
+
+.btn-dark{
+  background:#111;
+  color:white;
+}
+
+/* RIGHT SIDE */
+.right{
+  flex:1;
+  background:white;
+  color:#333;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  padding:40px;
+}
+
+/* PROFILE IMAGE */
+.right img{
+  width:120px;
+  border-radius:50%;
+  margin-bottom:15px;
+}
+
+.right h2{
+  margin-bottom:5px;
+}
+
+.right p{
+  font-size:14px;
+  color:#666;
+  text-align:center;
+}
+
+/* SKILLS */
+.skills{
+  margin-top:20px;
+}
+
+.skills span{
+  display:inline-block;
+  background:#007bff;
+  color:white;
+  padding:6px 12px;
+  border-radius:20px;
+  margin:5px;
+  font-size:12px;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .main{
+    flex-direction:column;
+  }
+
+  .left{
+    text-align:center;
+  }
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="main">
+
+  <!-- LEFT SIDE -->
+  <div class="left">
+    <h1>I Build Websites That Stand Out 🚀</h1>
+
+    <p>
+      I help businesses and individuals create modern, fast, and visually
+      impressive websites that attract users and deliver real results.
+    </p>
+
+    <div class="buttons">
+      <button class="btn btn-primary" onclick="location.href='index.html'">Back</button>
+      <button class="btn btn-dark" onclick="location.href='mailto:smiabbasi97@gmail.com'">E-mail</button>
+    </div>
+  </div>
+
+  <!-- RIGHT SIDE -->
+  <div class="right">
+    <img src="smi.jpg" alt="Sami">
+
+    <h2>Sami Ullah</h2>
+    <p>Developer</p>
+
+    <p>Just someone sharing ideas and inspiration 🌈</p>
+
+   <div class="skills">
+     <span>Curiosity</span>
+     <span>Creativity</span>
+     <span>Adventure</span>
+     <span>Imagination</span>
+    <span>Inspiration</span>
+    <span>Fun</span>
+</div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

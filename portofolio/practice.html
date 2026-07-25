@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>SMI Profile</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+body{
+  background: linear-gradient(135deg, #e3f2fd, #f4f6f9);
+  text-align:center;
+}
+
+/* Main Card */
+.container{
+  width:90%;
+  max-width:800px;
+  margin:50px auto;
+  background:white;
+  padding:40px;
+  border-radius:15px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* Image */
+.container img{
+  width:150px;
+  height:150px;
+  border-radius:50%;
+  object-fit:cover;
+  border:4px solid #007bff;
+}
+
+/* Headings */
+h1{
+  margin-top:15px;
+  color:#222;
+}
+
+h2{
+  margin-top:40px;
+  color:#007bff;
+}
+
+/* Button */
+button{
+  margin-top:20px;
+  padding:12px 25px;
+  border:none;
+  border-radius:8px;
+  background:#007bff;
+  color:white;
+  font-size:15px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+button:hover{
+  background:#0056b3;
+  transform:translateY(-3px);
+}
+
+/* Lists */
+ul, ol{
+  margin-top:15px;
+  display:inline-block;
+  text-align:left;
+}
+
+/* Table */
+table{
+  margin:20px auto;
+  border-collapse:collapse;
+  width:100%;
+}
+
+th, td{
+  padding:10px;
+  border:1px solid #ddd;
+}
+
+th{
+  background:#007bff;
+  color:white;
+}
+
+/* Links */
+a{
+  color:#007bff;
+  text-decoration:none;
+}
+
+a:hover{
+  text-decoration:underline;
+}
+
+/* Footer */
+footer{
+  margin-top:40px;
+  padding:20px;
+  color:#777;
+  font-size:14px;
+}
+.hobby-container{
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  flex-wrap:wrap;
+  margin-top:20px;
+}
+
+.hobby-card{
+  background:white;
+  padding:15px 20px;
+  border-radius:10px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.08);
+  transition:0.3s;
+}
+
+.hobby-card:hover{
+  transform:translateY(-5px);
+  background:#007bff;
+  color:white;
+}
+.hobby-container{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:15px;
+}
+.skills-container{
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  flex-wrap:wrap;
+  margin-top:20px;
+}
+
+.skill-card{
+  background:white;
+  padding:12px 20px;
+  border-radius:8px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.08);
+  transition:0.3s;
+  font-weight:500;
+}
+
+.skill-card:hover{
+  transform:translateY(-5px);
+  background:#007bff;
+  color:white;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<img src="smi.jpg" alt="Sami">
+
+<h1>Sami Ullah Akhtar</h1>
+
+<p id="intro">Learner | Student | Developer</p>
+
+<button onclick="showMessage()">Welcome</button>
+<h2>Skills</h2>
+
+<div class="skills-container">
+
+  <div class="skill-card">🐍 Python</div>
+  <div class="skill-card">⚡ C++</div>
+  <div class="skill-card">☕ Java</div>
+  <div class="skill-card">🔷 C#</div>
+  <div class="skill-card">🗄 SQL</div>
+  <div class="skill-card">💻 C</div>
+
+</div>
+<h2>Hobbies</h2>
+
+<div class="hobby-container">
+  <div class="hobby-card">💻 Coding</div>
+  <div class="hobby-card">📚 Learning</div>
+  <div class="hobby-card">🎮 Gaming</div>
+<div class="hobby-card">🏏 Cricket</div>
+  
+</div>
+
+<h2>Education</h2>
+
+<table>
+<tr>
+<th>Name</th>
+<th>Age</th>
+<th>Education</th>
+<th>Institute</th>
+</tr>
+
+<tr>
+<td>Sami Ullah Akhtar</td>
+<td>21</td>
+<td>BSCS</td>
+<td>FUUAST ISB</td>
+</tr>
+</table>
+
+<h2>Contact</h2>
+<p>Email: <a href="mailto:smiabbasi97@gmail.com">smiabbasi97@gmail.com</a></p>
+<p>Phone: +92 315 5086894</p>
+
+<br>
+
+<a href="index.html">
+<button>Go Back</button>
+</a>
+
+</div>
+
+<footer>
+© 2026 SMI | All Rights Reserved
+</footer>
+
+<script>
+function showMessage(){
+  document.getElementById("intro").innerText = "Welcome to my portfolio!";
+}
+</script>
+
+</body>
+</html>
+
+

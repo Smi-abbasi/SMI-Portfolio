@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SMI Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+    font-family:'Poppins',sans-serif;
+    background:#f5f7fb;
+    color:#333;
+    padding-top:80px;
+    transition:0.3s;
+}
+
+/* DARK MODE */
+.dark-mode{
+    background:#0f172a;
+    color:#fff;
+}
+.dark-mode .card,
+.dark-mode footer,
+.dark-mode .navbar,
+.dark-mode .skill-card{
+    background:#1e293b;
+    color:#e2e8f0;
+}
+.dark-mode .skill-card h3{color:#60a5fa;}
+.dark-mode .skill-card p{color:#cbd5f5;}
+
+/* NAVBAR */
+.navbar{
+    position:fixed;
+    top:0;
+    width:100%;
+    background:rgba(255,255,255,0.8);
+    backdrop-filter:blur(12px);
+    z-index:1000;
+}
+.navbar .container{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 0;
+}
+.logo{
+    font-size:24px;
+    font-weight:600;
+    color:#007bff;
+}
+.nav-links{
+    display:flex;
+    align-items:center;
+}
+.nav-links a{
+    margin-left:20px;
+    text-decoration:none;
+    color:inherit;
+}
+.nav-links a:hover{color:#007bff;}
+.menu-toggle{
+    display:none;
+    font-size:26px;
+    cursor:pointer;
+}
+
+/* BUTTONS */
+.btn{
+    display:inline-block;
+    margin-top:20px;
+    padding:12px 25px;
+    background:#007bff;
+    color:#fff;
+    border-radius:30px;
+    text-decoration:none;
+    border:none;
+    cursor:pointer;
+    transition:0.3s;
+}
+.btn:hover{background:#0056b3;}
+
+/* HERO */
+#home{
+    height:100vh;
+    display:flex;
+    align-items:center;
+    text-align:center;
+    background:linear-gradient(to right,#007bff,#00c6ff);
+    color:white;
+    flex-direction:column;
+}
+#home img{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    margin-bottom:15px;
+    border:4px solid white;
+    box-shadow:0 5px 20px rgba(0,0,0,0.2);
+}
+#home h1{font-size:48px; margin-top:10px;}
+#home p{margin-top:5px; font-size:18px;}
+
+/* SECTIONS */
+section{
+    padding:100px 20px;
+    text-align:center;
+}
+.fade{opacity:0; transform:translateY(30px); transition:0.6s;}
+.fade.show{opacity:1; transform:translateY(0);}
+
+/* ABOUT */
+.about-text{
+    max-width:700px;
+    margin:auto;
+    color:#555;
+}
+.about-points{
+    margin-top:20px;
+}
+.about-points p{margin:5px 0; font-weight:500;}
+
+/* SKILLS */
+.skills-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+    margin-top:40px;
+}
+.skill-card{
+    background:#fff;
+    padding:30px 20px;
+    border-radius:16px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.05);
+    text-align:center;
+    transition:0.3s;
+    position:relative;
+    overflow:hidden;
+}
+.skill-card:hover{
+    transform:translateY(-10px) scale(1.03);
+    box-shadow:0 15px 35px rgba(0,0,0,0.1);
+}
+.skill-icon{font-size:30px; margin-bottom:10px;}
+.skill-card h3{margin-bottom:10px; color:#007bff;}
+.skill-card p{font-size:14px; color:#555;}
+
+/* PROJECTS */
+.projects{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+    margin-top:40px;
+}
+.card{
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.05);
+    transition:0.3s;
+}
+.card:hover{
+    transform:translateY(-10px);
+}
+
+/* FOOTER */
+footer{
+    background:white;
+    padding:20px;
+    text-align:center;
+    margin-top:40px;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+    .menu-toggle{display:block;}
+    .nav-links{
+        position:absolute;
+        top:70px;
+        right:0;
+        background:white;
+        flex-direction:column;
+        width:200px;
+        display:none;
+        padding:20px;
+        border-radius:10px;
+    }
+    .nav-links.show{display:flex;}
+    .nav-links a{margin:10px 0;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <div class="container">
+        <div class="logo">SMI</div>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <div class="nav-links" id="navLinks">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        
+            <button onclick="toggleDarkMode()" class="btn" style="margin-top:10px;">Dark Mode🌙</button>
+        </div>
+    </div>
+</div>
+
+<!-- HOME -->
+<section id="home" class="fade">
+    <img src="smi.jpg" alt="SMI Profile Picture">
+    <h1>Hello, I'm SMI 👋</h1>
+    <p>Developer | Building modern websites</p>
+    <button class="btn" onclick="document.getElementById('intro').scrollIntoView({behavior:'smooth'})">Welcome</button>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="fade">
+    <h2>About Me</h2>
+    <p id="intro" style="color:#007bff;font-weight:600;">Full-Stack Developer | Problem Solver | Tech Enthusiast</p>
+    <p>I am a dedicated full-stack developer with strong knowledge in frontend and backend technologies. I build modern, responsive websites with smooth user experiences.</p>
+    <p>I enjoy coding, learning new technologies, and building projects that solve real problems.</p>
+    <div class="about-points">
+        <p>✔ Hobbies: Coding, Reading, Gaming, Cricket</p>
+        <p>✔ Education: BSCS at FUUAST | Age: 21</p>
+        <p>✔ Backend Programming: Python, C++, Java, C#</p>
+        <p>✔ Database Management using SQL</p>
+        <p>✔ Clean, Responsive & Modern UI Design</p>
+        <p>✔ Strong Problem Solving & Logical Thinking</p>
+    </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="fade">
+    <h2>Skills & Technologies</h2>
+    <div class="skills-container">
+        <div class="skill-card">
+            <div class="skill-icon">💻</div>
+            <h3>Frontend</h3>
+            <p>HTML, CSS, JavaScript</p>
+        </div>
+        <div class="skill-card">
+            <div class="skill-icon">⚙️</div>
+            <h3>Backend</h3>
+            <p>Python, Java, C++, C#</p>
+        </div>
+        <div class="skill-card">
+            <div class="skill-icon">🗄</div>
+            <h3>Database</h3>
+            <p>SQL,MangoDB</p>
+        </div>
+        <div class="skill-card">
+            <div class="skill-icon">🧠</div>
+            <h3>Programming</h3>
+            <p>C Language & Problem Solving</p>
+        </div>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="fade">
+    <h2>My Projects</h2>
+    <div class="projects">
+        <div class="card">
+            <h3>Practice Profile</h3>
+            <p>Basic profile with skills, hobbies, and education table.</p>
+            <a href="practice.html" class="btn">View</a>
+        </div>
+        <div class="card">
+            <h3>Profile Card</h3>
+            <p>Two-column card showing profile info and skills.</p>
+            <a href="profile.html" class="btn">View</a>
+        </div>
+        <div class="card">
+            <h3>About Me Page</h3>
+            <p>Stylish personal About & Goals section.</p>
+            <a href="about.html" class="btn">View</a>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="fade">
+    <h2>Contact Me</h2>
+    <p>Let's work together!</p>
+    <a href="mailto:smiabbasi97@gmail.com" class="btn">E-mail Me</a>
+</section>
+
+<footer>
+    <p>© 2026 SMI | All Rights Reserved</p>
+</footer>
+
+<script>
+/* DARK MODE SAVE */
+function toggleDarkMode(){
+    document.body.classList.toggle("dark-mode");
+    localStorage.setItem("darkMode",document.body.classList.contains("dark-mode"));
+}
+if(localStorage.getItem("darkMode")==="true"){
+    document.body.classList.add("dark-mode");
+}
+
+/* MOBILE MENU */
+function toggleMenu(){
+    document.getElementById("navLinks").classList.toggle("show");
+}
+
+/* SCROLL ANIMATION */
+const fades=document.querySelectorAll(".fade");
+window.addEventListener("scroll",()=>{
+    fades.forEach(el=>{
+        const top=el.getBoundingClientRect().top;
+        if(top<window.innerHeight-100){
+            el.classList.add("show");
+        }
+    });
+});
+</script>
+
+</body>
+</html>
